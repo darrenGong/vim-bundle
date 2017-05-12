@@ -146,7 +146,11 @@ set encoding=utf8
 set termencoding=utf-8
 set enc=utf-8
 
+" 保存上一次光标的位置
+au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm'\"")|else|exe "norm $"|endif|endif
+
 " go set
+let g:go_autodetect_gopath = 0
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_structs = 1
